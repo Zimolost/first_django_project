@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Имя пользователя{% endblock title %}
+{% block header %}Имя пользователя{% endblock header %}
+
+{% block content %}
+    <ul>
+    {% for i in sort_user_list %}
+        <li>{{ i.0 }}. {{ i.1.name }} </li>
+    {% empty %}
+        <li>Категории пусты</li>
+    {% endfor %}
+    </ul>
+<h2>Сегодня: {{ time }}</h2>
+{% if work_time >= 5 %}
+    <h3>Сотрудник {{ profile_data.0 }} работает 5 или больше лет</h3>
+{% else %}
+    <h3>Сотрудник {{ profile_data.0 }} работает меньше 5 лет</h3>
+{% endif %}
+{% endblock content %}
